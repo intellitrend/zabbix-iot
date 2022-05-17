@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2022-05-17T15:22:58Z</date>
+    <groups>
+        <group>
+            <uuid>43d0fe04c7094000829b0d28c6e3470c</uuid>
+            <name>Custom Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>54edce885f8648ba999e5f7bb60040a0</uuid>
+            <template>CT Esp32 DHT11-22</template>
+            <name>CT Esp32 DHT11-22</name>
+            <groups>
+                <group>
+                    <name>Custom Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>d3dc25e78cc44bd080a5708edeff710a</uuid>
+                    <name>humidity</name>
+                    <type>TRAP</type>
+                    <key>humidity</key>
+                    <delay>0</delay>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <units>%</units>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sensors</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>ca4360cdb5b04099a87be539f876fe32</uuid>
+                            <expression>last(/CT Esp32 DHT11-22/humidity)&lt;{$TC_ESP32_DHT11_22_HUM_MIN_LEVEL}</expression>
+                            <name>hum.last.Lt.{$TC_ESP32_DHT11_22_HUM_MIN_LEVEL} ({ITEM.LASTVALUE})</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>4048d1abf1ba48e6b5e457e6c8db3e32</uuid>
+                            <expression>last(/CT Esp32 DHT11-22/humidity)&gt;{$TC_ESP32_DHT11_22_HUM_MAX_LEVEL}</expression>
+                            <name>hum.last.Mt.{$TC_ESP32_DHT11_22_HUM_MAX_LEVEL} ({ITEM.LASTVALUE})</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>7773b04c1dc44bdaac6d915abef35b3e</uuid>
+                            <expression>nodata(/CT Esp32 DHT11-22/humidity,{$TC_ESP32_DHT11_22_HUM_NODATA_INTERVAL})=1</expression>
+                            <name>hum.nodata</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>1f55f92ccc44475c82be03dec3db8651</uuid>
+                    <name>temperature</name>
+                    <type>TRAP</type>
+                    <key>temperature</key>
+                    <delay>0</delay>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <units>*C</units>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sensors</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>ec644f2a1d344843b13bb8694cf49a0f</uuid>
+                            <expression>last(/CT Esp32 DHT11-22/temperature)&lt;{$TC_ESP32_DHT11_22_TEMP_MIN_LEVEL}</expression>
+                            <name>temp.last.Lt.{$TC_ESP32_DHT11_22_TEMP_MIN_LEVEL} ({ITEM.LASTVALUE})</name>
+                            <priority>DISASTER</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>c5596fcd3f854d03886f0d9330672a9f</uuid>
+                            <expression>last(/CT Esp32 DHT11-22/temperature)&gt;{$TC_ESP32_DHT11_22_TEMP_MAX_LEVEL}</expression>
+                            <name>temp.last.Mt.{$TC_ESP32_DHT11_22_TEMP_MAX_LEVEL} ({ITEM.LASTVALUE})</name>
+                            <priority>DISASTER</priority>
+                        </trigger>
+                        <trigger>
+                            <uuid>6c238295fdb94a18a508f68d24552494</uuid>
+                            <expression>nodata(/CT Esp32 DHT11-22/temperature,{$TC_ESP32_DHT11_22_TEMP_NODATA_INTERVAL})=1</expression>
+                            <name>temp.nodata</name>
+                            <priority>DISASTER</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <macros>
+                <macro>
+                    <macro>{$TC_ESP32_DHT11_22_HUM_MAX_LEVEL}</macro>
+                    <value>60</value>
+                </macro>
+                <macro>
+                    <macro>{$TC_ESP32_DHT11_22_HUM_MIN_LEVEL}</macro>
+                    <value>20</value>
+                </macro>
+                <macro>
+                    <macro>{$TC_ESP32_DHT11_22_HUM_NODATA_INTERVAL}</macro>
+                    <value>1h</value>
+                </macro>
+                <macro>
+                    <macro>{$TC_ESP32_DHT11_22_TEMP_MAX_LEVEL}</macro>
+                    <value>32.5</value>
+                </macro>
+                <macro>
+                    <macro>{$TC_ESP32_DHT11_22_TEMP_MIN_LEVEL}</macro>
+                    <value>18</value>
+                </macro>
+                <macro>
+                    <macro>{$TC_ESP32_DHT11_22_TEMP_NODATA_INTERVAL}</macro>
+                    <value>16m</value>
+                </macro>
+            </macros>
+            <dashboards>
+                <dashboard>
+                    <uuid>14723dd2fe0b4e328e12576672845b87</uuid>
+                    <name>Template Custom Esp32 DHT11</name>
+                    <pages>
+                        <page>
+                            <widgets>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <width>24</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>TC Esp32 DHT11-22 temperature</name>
+                                                <host>CT Esp32 DHT11-22</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <y>5</y>
+                                    <width>24</width>
+                                    <height>6</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>TC Esp32 DHT11-22 humidity</name>
+                                                <host>CT Esp32 DHT11-22</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <y>11</y>
+                                    <width>24</width>
+                                    <height>6</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>TC Esp32 DHT11-22</name>
+                                                <host>CT Esp32 DHT11-22</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                            </widgets>
+                        </page>
+                    </pages>
+                </dashboard>
+            </dashboards>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <uuid>65c67882f7bb4c7eb6f200f8522916e7</uuid>
+            <name>TC Esp32 DHT11-22</name>
+            <graph_items>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>199C0D</color>
+                    <item>
+                        <host>CT Esp32 DHT11-22</host>
+                        <key>humidity</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>CT Esp32 DHT11-22</host>
+                        <key>temperature</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>47ba34cf7a56467b98da04cf4dcb3467</uuid>
+            <name>TC Esp32 DHT11-22 humidity</name>
+            <graph_items>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>199C0D</color>
+                    <item>
+                        <host>CT Esp32 DHT11-22</host>
+                        <key>humidity</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>ba6ad69b69cb452ab11644d31a524802</uuid>
+            <name>TC Esp32 DHT11-22 temperature</name>
+            <graph_items>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>CT Esp32 DHT11-22</host>
+                        <key>temperature</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>b553fba1a0734ea9830e116916a64608</uuid>
+            <name>Template Custom Esp32 DHT11</name>
+            <graph_items>
+                <graph_item>
+                    <color>199C0D</color>
+                    <item>
+                        <host>CT Esp32 DHT11-22</host>
+                        <key>humidity</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>CT Esp32 DHT11-22</host>
+                        <key>temperature</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
