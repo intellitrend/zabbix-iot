@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2022-05-17T15:22:46Z</date>
+    <groups>
+        <group>
+            <uuid>112c61a276d0476faf6b25dd3a337b1d</uuid>
+            <name>CT</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>6e41c69ad17e406b95021da915cba2c0</uuid>
+            <template>CT Esp32 ADC</template>
+            <name>CT Esp32 ADC</name>
+            <groups>
+                <group>
+                    <name>CT</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>976489b9f1664eae93c35f8ff62ec4d9</uuid>
+                    <name>adc</name>
+                    <type>TRAP</type>
+                    <key>adc</key>
+                    <delay>0</delay>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>ADC</value>
+                        </tag>
+                    </tags>
+                    <triggers>
+                        <trigger>
+                            <uuid>c8ef962e7f0a42c59948a665a1d425f1</uuid>
+                            <expression>nodata(/CT Esp32 ADC/adc,6m)=1</expression>
+                            <name>adc.nodata</name>
+                            <priority>DISASTER</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <dashboards>
+                <dashboard>
+                    <uuid>41f049f00bca4fc8af3678c21e49f640</uuid>
+                    <name>CT Esp32 ADC</name>
+                    <pages>
+                        <page>
+                            <widgets>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <width>24</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>CT Esp32 ADC</name>
+                                                <host>CT Esp32 ADC</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                            </widgets>
+                        </page>
+                    </pages>
+                </dashboard>
+            </dashboards>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <uuid>41f049f00bca4fc8af3678c21e49f640</uuid>
+            <name>CT Esp32 ADC</name>
+            <graph_items>
+                <graph_item>
+                    <color>199C0D</color>
+                    <item>
+                        <host>CT Esp32 ADC</host>
+                        <key>adc</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>

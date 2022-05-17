@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2022-05-17T15:22:53Z</date>
+    <groups>
+        <group>
+            <uuid>43d0fe04c7094000829b0d28c6e3470c</uuid>
+            <name>Custom Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>fc50f759390746239c7c529fe97e9e68</uuid>
+            <template>CT Esp32 BMP280</template>
+            <name>CT Esp32 BMP280</name>
+            <groups>
+                <group>
+                    <name>Custom Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>89e54d6bc17d4cd59ec2c491bee40382</uuid>
+                    <name>altitude</name>
+                    <type>TRAP</type>
+                    <key>altitude</key>
+                    <delay>0</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>m</units>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sensors</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>974da6f7c3d94425b67fd0e5fdd835ea</uuid>
+                    <name>pressure</name>
+                    <type>TRAP</type>
+                    <key>pressure</key>
+                    <delay>0</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>hPa</units>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sensors</value>
+                        </tag>
+                    </tags>
+                </item>
+                <item>
+                    <uuid>0b08f88d6c044b4e8f45deba34263bc5</uuid>
+                    <name>temperature</name>
+                    <type>TRAP</type>
+                    <key>temperature</key>
+                    <delay>0</delay>
+                    <value_type>FLOAT</value_type>
+                    <units>*C</units>
+                    <tags>
+                        <tag>
+                            <tag>Application</tag>
+                            <value>Sensors</value>
+                        </tag>
+                    </tags>
+                </item>
+            </items>
+            <dashboards>
+                <dashboard>
+                    <uuid>33b8b8cff5fe4c7695793f52c9eb873e</uuid>
+                    <name>CT Esp32 BMP280</name>
+                    <pages>
+                        <page>
+                            <widgets>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <width>12</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>CT Esp32 BMP280 altitude</name>
+                                                <host>CT Esp32 BMP280</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <x>12</x>
+                                    <width>12</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>CT Esp32 BMP280 pressure</name>
+                                                <host>CT Esp32 BMP280</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                                <widget>
+                                    <type>GRAPH_CLASSIC</type>
+                                    <y>5</y>
+                                    <width>12</width>
+                                    <height>5</height>
+                                    <fields>
+                                        <field>
+                                            <type>GRAPH</type>
+                                            <name>graphid</name>
+                                            <value>
+                                                <name>CT Esp32 BMP280 temperature</name>
+                                                <host>CT Esp32 BMP280</host>
+                                            </value>
+                                        </field>
+                                    </fields>
+                                </widget>
+                            </widgets>
+                        </page>
+                    </pages>
+                </dashboard>
+            </dashboards>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <uuid>343d8674a6794c758348425dc42f33e7</uuid>
+            <name>CT Esp32 BMP280 altitude</name>
+            <graph_items>
+                <graph_item>
+                    <color>F7941D</color>
+                    <item>
+                        <host>CT Esp32 BMP280</host>
+                        <key>altitude</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>e3d05f94daff4fef8b9f6a23067c6818</uuid>
+            <name>CT Esp32 BMP280 pressure</name>
+            <graph_items>
+                <graph_item>
+                    <color>199C0D</color>
+                    <item>
+                        <host>CT Esp32 BMP280</host>
+                        <key>pressure</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <uuid>f8a40947d4be460a9a0ee34241c36655</uuid>
+            <name>CT Esp32 BMP280 temperature</name>
+            <graph_items>
+                <graph_item>
+                    <color>199C0D</color>
+                    <item>
+                        <host>CT Esp32 BMP280</host>
+                        <key>temperature</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
